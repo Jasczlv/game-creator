@@ -1,10 +1,36 @@
 @extends('layouts.app')
 @section('content')
-<section>
+<section class="container">
     <div>
         <h1>Home Page</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi consequuntur sunt labore aliquam dolorum ab. Omnis magni fugiat, doloribus adipisci eos harum odit ullam explicabo eaque, eligendi possimus alias aperiam! In, esse! Veniam totam magnam officia aspernatur. Quidem, a fugiat.
-        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Slug</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Weight</th>
+                    <th>Cost</th>
+                    <th>Damage Dice</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($weapons as $weapon)
+             <tr>
+                <td>{{$weapon->name}}</td>
+                <td>{{$weapon->slug}}</td>
+                <td>{{$weapon->type}}</td>
+                <td>{{$weapon->category}}</td>
+                <td>{{$weapon->weight}}</td>
+                <td>{{$weapon->cost}}</td>
+                <td>{{$weapon->damage_dice}}</td>
+             </tr>
+            @endforeach
+            </tbody>
+        </table>
+            
+
     </div>
 </section>
