@@ -15,7 +15,7 @@ class CharacterController extends Controller
         //
         $character = Character::all();
 
-        return view('characters.index');
+        return view('characters.index', $character);
     }
 
     /**
@@ -49,7 +49,7 @@ class CharacterController extends Controller
     public function show(Character $character)
     {
         //
-        
+
     }
 
     /**
