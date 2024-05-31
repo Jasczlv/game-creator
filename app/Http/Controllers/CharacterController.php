@@ -26,7 +26,7 @@ class CharacterController extends Controller
         //
 
         //Ianis
-
+        return view('characters.create');
     }
 
     /**
@@ -37,6 +37,10 @@ class CharacterController extends Controller
         //
 
         //Ianis
+        $form_data = $request->all();
+
+        $new_character = Character::create($form_data);
+        return to_route('comics.show', $new_character);
     }
 
     /**
