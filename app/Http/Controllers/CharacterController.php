@@ -66,7 +66,7 @@ class CharacterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $character)
+    public function update(Request $request, Character $character)
     {
 
 
@@ -82,7 +82,7 @@ class CharacterController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($character)
+    public function destroy(Character $character)
     {
 
 

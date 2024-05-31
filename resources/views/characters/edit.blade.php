@@ -1,40 +1,49 @@
-@extends('layout.app')
+@extends('layouts.app')
 
 @section('content')
-<form action="{{route('character.update', $character)}}" method="POST">
-    @csrf
-    @method('PUT')
-    <div class="contenitore-input">
-        <label for="name" >Nome</label>
-        <input type="text" name="name" id="name" value="{{$character->name}}">
-    </div>
+    <form action="{{ route('characters.update', $character) }}" method="POST">
 
-    <div class="contenitore-input">
-        <label for="description" >Descrizione</label>
-        <textarea  name="description" id="description">{{$character->description}}</textarea>
-    </div>
+        @csrf
+        @method('PUT')
 
-    <div class="container-input">
-        <label for="attack" >Attacco</label>
-        <input type="text" name="attack" id="attack" value="{{$character->attack}}">
-    </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
+                value="{{ $character->name }}">
+        </div>
 
-    <div class="container-input">
-        <label for="defence" >Difesa</label>
-        <input type="text" name="defence" id="defence" value="{{$character->defence}}">
-    </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Descrizione</label>
+            <input type="text" name="description" class="form-control" id="description" placeholder=""
+                value="{{ $character->description }}">
+        </div>
 
-    <div class="container-input">
-        <label for="speed" >Velocità</label>
-        <input type="text" name="speed" id="speed" value="{{$character->speed}}">
-    </div>
+        <div class="mb-3">
+            <label for="attack" class="form-label">Sale Date</label>
+            <input type="text" name="attack" class="form-control" id="attack" placeholder="Attacck"
+                value="{{ $character->attack }}">
+        </div>
 
-    <div class="container-input">
-        <label for="life" >Vita</label>
-        <input type="text" name="life" id="life" value="{{$character->life}}">
-    </div>
+        <div class="mb-3">
+            <label for="defence" class="form-label">Difesa</label>
+            <input type="text" name="defence" class="form-control" id="defence" placeholder="Difesa"
+                value="{{ $character->defence }}">
+        </div>
 
-   
-    <button>Modifica</button>
-</form>
+        <div class="mb-3">
+            <label for="speed" class="form-label">Velocità</label>
+            <input type="text" name="speed" class="form-control" id="speed" placeholder="Speed"
+                value="{{ $character->speed }}">
+        </div>
+
+        <div class="mb-3">
+            <label for="life" class="form-label">HP</label>
+            <input type="text" name="life" class="form-control" id="life" placeholder="HP"
+                value="{{ $character->life }}">
+        </div>
+
+        <button class="btn btn-primary">Update</button>
+
+
+    </form>
 @endsection
