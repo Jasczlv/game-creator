@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <h1>
-        Ciao
+        CIAO
     </h1>
+    @foreach ($characters as $character) 
+
+    <p>{{$character->name}}</p>
+
+    @endforeach
 @endsection
