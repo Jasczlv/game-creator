@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\CharacterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+/* Weapons/Items routes */
+
 Route::get('/', [PageController::class, 'index']);
+
+
+/* *************************************************************** */
+
+/* Characters routes */
+
+Route::resource('characters', CharacterController::class);
