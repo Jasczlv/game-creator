@@ -40,7 +40,7 @@ class CharacterController extends Controller
      */
     public function show(string $character)
     {
-        //
+        //ricky
     }
 
     /**
@@ -48,7 +48,7 @@ class CharacterController extends Controller
      */
     public function edit(string $character)
     {
-        //
+        //ricky
     }
 
     /**
