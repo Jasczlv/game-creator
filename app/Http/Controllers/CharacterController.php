@@ -25,6 +25,8 @@ class CharacterController extends Controller
     {
         //
 
+        //Ianis
+
     }
 
     /**
@@ -33,6 +35,8 @@ class CharacterController extends Controller
     public function store(Request $request)
     {
         //
+
+        //Ianis
     }
 
     /**
