@@ -60,7 +60,7 @@ class CharacterController extends Controller
      */
     public function update(Request $request, string $character)
     {
-        //
+        // Enrico
     }
 
     /**
@@ -68,6 +68,6 @@ class CharacterController extends Controller
      */
     public function destroy(string $character)
     {
-        //
+        // Enrico
     }
 }
