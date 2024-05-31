@@ -1,3 +1,6 @@
+@extends('layout.app')
+
+@section('content')
 <form action="{{route('character.update', $character)}}" method="POST">
     @csrf
     @method('PUT')
@@ -34,3 +37,4 @@
    
     <button>Modifica</button>
 </form>
+@endsection
