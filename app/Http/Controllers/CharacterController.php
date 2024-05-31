@@ -26,7 +26,7 @@ class CharacterController extends Controller
         //
 
         //Ianis
-        return view('characters.create');
+
     }
 
     /**
@@ -44,7 +44,7 @@ class CharacterController extends Controller
      */
     public function show(string $character)
     {
-        //ricky
+        //
     }
 
     /**
@@ -52,7 +52,7 @@ class CharacterController extends Controller
      */
     public function edit(string $character)
     {
-        //ricky
+        //
     }
 
     /**
