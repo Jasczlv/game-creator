@@ -50,6 +50,7 @@ class CharacterController extends Controller
     {
         //
 
+        return view('characters.show', compact('character'));
     }
 
     /**
