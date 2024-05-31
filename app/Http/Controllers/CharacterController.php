@@ -45,6 +45,7 @@ class CharacterController extends Controller
     public function show(Character $character)
     {
         //
+        
     }
 
     /**
@@ -53,6 +54,7 @@ class CharacterController extends Controller
     public function edit(Character $character)
     {
         //
+
     }
 
     /**
