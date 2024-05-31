@@ -20,17 +20,17 @@
     </div>
 
     <div class="container-input">
-        <label for="defence" >Attacco</label>
+        <label for="defence" >Difesa</label>
         <input type="text" name="defence" id="defence" value="{{$character->defence}}">
     </div>
 
     <div class="container-input">
-        <label for="speed" >Attacco</label>
+        <label for="speed" >Velocità</label>
         <input type="text" name="speed" id="speed" value="{{$character->speed}}">
     </div>
 
     <div class="container-input">
-        <label for="life" >Attacco</label>
+        <label for="life" >Vita</label>
         <input type="text" name="life" id="life" value="{{$character->life}}">
     </div>
 
