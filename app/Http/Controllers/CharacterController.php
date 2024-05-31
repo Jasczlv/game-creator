@@ -42,7 +42,7 @@ class CharacterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $character)
+    public function show(Character $character)
     {
         //
     }
@@ -50,7 +50,7 @@ class CharacterController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $character)
+    public function edit(Character $character)
     {
         //
     }
