@@ -25,7 +25,7 @@ class CharacterController extends Controller
     {
         //
 
-        //Ianis
+
         return view('characters.create');
     }
 
@@ -36,7 +36,7 @@ class CharacterController extends Controller
     {
         //
 
-        //Ianis
+
         $form_data = $request->all();
 
         $new_character = Character::create($form_data);
@@ -60,21 +60,33 @@ class CharacterController extends Controller
     {
         //
 
+        return view('characters.edit', compact('character'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $character)
+    public function update(Request $request, $character)
     {
-        // Enrico
+
+
+        $form_data = $request->all();
+
+        $character->fill($form_data);
+        $character->save();
+        // $character->update($form_data);
+
+        return to_route('characters.show', $character);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $character)
+    public function destroy($character)
     {
-        // Enrico
+
+
+        $character->delete();
+        return to_route('characters.index');
     }
 }
