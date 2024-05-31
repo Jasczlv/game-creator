@@ -26,7 +26,7 @@ class CharacterController extends Controller
         //
 
         //Ianis
-
+        return view('characters.create');
     }
 
     /**
