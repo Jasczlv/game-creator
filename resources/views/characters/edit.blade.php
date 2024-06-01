@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="attack" class="form-label">Sale Date</label>
+            <label for="attack" class="form-label">Attacco</label>
             <input type="text" name="attack" class="form-control" id="attack" placeholder="Attacck"
                 value="{{ $character->attack }}">
         </div>

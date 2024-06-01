@@ -3,6 +3,9 @@
 <section class="container">
     <div>
         <h1>Home Page</h1>
+        <div>
+            <h3><a href="{{ route('characters.index') }}">&#8594; characters</a></h3>
+        </div>
 
         <table class="table">
             <thead>
