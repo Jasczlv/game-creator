@@ -27,16 +27,18 @@
                             <td>{{ $character->speed }}</td>
                             <td>{{ $character->life }}</td>
                             <td>
-                                <div class="d-flex gap-2">
-                                    <a href="{{ route('characters.edit', $character) }}">Edit</a>
-                                    <form action="{{ route('characters.destroy', $character) }}" method="POST">
-                                        @method('DELETE')
-                                        @csrf
+                                @auth
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
+                                        <form action="{{ route('characters.destroy', $character) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
 
-                                        <button class="btn btn-link link-danger">Trash</button>
+                                            <button class="btn btn-link link-danger">Trash</button>
 
-                                    </form>
-                                </div>
+                                        </form>
+                                    </div>
+                                @endauth
                             </td>
                         </tr>
                     @endforeach
