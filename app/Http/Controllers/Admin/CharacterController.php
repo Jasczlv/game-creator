@@ -16,7 +16,7 @@ class CharacterController extends Controller
         //
         $characters = Character::all();
 
-        return view('characters.index', compact('characters'));
+        return view('admin.characters.index', compact('characters'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CharacterController extends Controller
         //
 
 
-        return view('characters.create');
+        return view('admin.characters.create');
     }
 
     /**
@@ -41,7 +41,7 @@ class CharacterController extends Controller
         $form_data = $request->all();
 
         $new_character = Character::create($form_data);
-        return to_route('comics.show', $new_character);
+        return to_route('admin.characters.show', $new_character);
     }
 
     /**
@@ -51,7 +51,7 @@ class CharacterController extends Controller
     {
         //
 
-        return view('characters.show', compact('character'));
+        return view('admin.characters.show', compact('character'));
     }
 
     /**
@@ -61,7 +61,7 @@ class CharacterController extends Controller
     {
         //
 
-        return view('characters.edit', compact('character'));
+        return view('admin.characters.edit', compact('character'));
     }
 
     /**
@@ -77,7 +77,7 @@ class CharacterController extends Controller
         $character->save();
         // $character->update($form_data);
 
-        return to_route('characters.show', $character);
+        return to_route('admin.characters.show', $character);
     }
 
     /**
@@ -88,6 +88,6 @@ class CharacterController extends Controller
 
 
         $character->delete();
-        return to_route('characters.index');
+        return to_route('admin.characters.index');
     }
 }

@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\CharacterController as PublicCharacterController;
 use App\Http\Controllers\Admin\CharacterController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\PageController as PublicPageController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('characters', PublicCharacterController::class)->only(['index', 'show']);
+Route::resource('weapons', PublicPageController::class)->only(['index']);
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
@@ -29,14 +32,13 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         /* Weapons/Items routes */
 
-        Route::get('/weapons', [PageController::class, 'index']);
-
+        Route::get('/weapons', [PageController::class, 'index'])->name('weapons.index');
 
         /* *************************************************************** */
 
         /* Characters routes */
 
-        Route::resource('admin.characters', CharacterController::class);
+        Route::resource('characters', CharacterController::class);
     });
 
 Route::get('/dashboard', function () {
