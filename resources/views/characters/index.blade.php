@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section>
-        <div>
+        <div class="container">
             <h1>Home Page</h1>
 
 
@@ -26,9 +26,7 @@
                             <td>{{ $character->defence }}</td>
                             <td>{{ $character->speed }}</td>
                             <td>{{ $character->life }}</td>
-                            <td>
 
-                            </td>
                         </tr>
                     @endforeach
 

@@ -20,3 +20,12 @@ a:hover {
 #app {
     min-height: 100vh;
 }
+
+.my-btn-edit {
+    background-color: var(--brand-red);
+    color: white;
+}
+
+.my-btn-edit:hover {
+    background-color: #6c757d67;
+}

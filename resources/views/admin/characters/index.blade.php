@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section>
-        <div>
+        <div class="container">
             <h1>Home Page</h1>
 
 
@@ -14,6 +14,11 @@
                         <th>Defence</th>
                         <th>Speed</th>
                         <th>HP</th>
+
+                        <th>
+                            {{-- fill --}}
+                        </th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -26,20 +31,24 @@
                             <td>{{ $character->defence }}</td>
                             <td>{{ $character->speed }}</td>
                             <td>{{ $character->life }}</td>
+
                             <td>
-                                @auth
-                                    <div class="d-flex gap-2">
-                                        <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
-                                        <form action="{{ route('admin.characters.destroy', $character) }}" method="POST">
-                                            @method('DELETE')
-                                            @csrf
+                                <div class="d-flex gap-2">
+                                    <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
+                                    <form action="{{ route('admin.characters.destroy', $character) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
 
-                                            <button class="btn btn-link link-danger">Trash</button>
+                                        <button class="btn btn-link link-danger">Trash</button>
 
-                                        </form>
-                                    </div>
-                                @endauth
+                                    </form>
+                                </div>
                             </td>
+
+
+
+
+
                         </tr>
                     @endforeach
 
