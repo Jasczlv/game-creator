@@ -20,14 +20,25 @@
                     @foreach ($characters as $character)
                         <tr>
 
-                            <td><a href="{{ route('characters.show', $character) }}">{{ $character->name }}</a></td>
+                            <td><a href="{{ route('admin.characters.show', $character) }}">{{ $character->name }}</a></td>
                             <td>{{ $character->description }}</td>
                             <td>{{ $character->attack }}</td>
                             <td>{{ $character->defence }}</td>
                             <td>{{ $character->speed }}</td>
                             <td>{{ $character->life }}</td>
                             <td>
+                                @auth
+                                    <div class="d-flex gap-2">
+                                        <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
+                                        <form action="{{ route('admin.characters.destroy', $character) }}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
 
+                                            <button class="btn btn-link link-danger">Trash</button>
+
+                                        </form>
+                                    </div>
+                                @endauth
                             </td>
                         </tr>
                     @endforeach

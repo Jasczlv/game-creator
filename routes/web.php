@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\CharacterController as PublicCharacterController;
+use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -16,24 +17,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
-
-Route::middleware('auth')->group(function () {
-    /* Weapons/Items routes */
-
-    Route::get('/', [PageController::class, 'index']);
-
-
-    /* *************************************************************** */
-
-    /* Characters routes */
-
-    Route::resource('characters', CharacterController::class);
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::resource('characters', PublicCharacterController::class)->only(['index', 'show']);
+
+Route::middleware(['auth', 'verified'])
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        /* Weapons/Items routes */
+
+        Route::get('/', [PageController::class, 'index']);
+
+
+        /* *************************************************************** */
+
+        /* Characters routes */
+
+        Route::resource('admin.characters', CharacterController::class);
+    });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
