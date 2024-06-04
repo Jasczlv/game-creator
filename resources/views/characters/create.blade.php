@@ -3,7 +3,6 @@
     <main>
         <section>
             <div class="container">
-                <p>characters.create</p>
                 <h2 class="fs-2">Crea un personaggio</h2>
             </div>
             <div class="container">
@@ -13,12 +12,12 @@
                     @csrf
 
                     <div class="mb-3">
-                        <label for="name" class="form-label">Nome</label>
+                        <label for="name" class="form-label">Giovanni</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Nome">
                     </div>
 
                     <div class="mb-3">
-                        <label for="description" class="form-label">Descrizione</label>
+                        <label for="description" class="form-label">Giovanni Sorrentino è un grande guerriero</label>
                         <input type="text" name="description" class="form-control" id="description"
                             placeholder="Descrizione">
                     </div>
