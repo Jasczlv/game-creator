@@ -6,7 +6,7 @@
                 <h2 class="fs-2">Crea un personaggio</h2>
             </div>
             <div class="container">
-                <form action="{{ route('characters.store') }}" method="POST">
+                <form action="{{ route('admin.characters.store') }}" method="POST">
 
                     {{-- Cross Site Request Forgering --}}
                     @csrf
