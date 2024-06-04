@@ -2,12 +2,9 @@
 @section('content')
     <section class="container">
         <div>
-            <h1>Home Page</h1>
-            <div>
-                <h3><a href="{{ route('characters.index') }}">&#8594; characters</a></h3>
-            </div>
+            <h1 class="text-center py-3">Weapons</h1>
 
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>

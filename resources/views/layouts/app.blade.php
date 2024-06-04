@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" class="d-flex flex-column">
 
 
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
@@ -92,8 +92,10 @@
             </div>
         </nav>
 
-        <main class="">
-            @yield('content')
+        <main class="flex-grow-1">
+            <div class="">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>
