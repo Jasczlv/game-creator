@@ -1,3 +1,7 @@
+@import "./partials/_variables.scss";
+@import "./nav.scss";
+@import "./main.scss";
+
 a {
     text-decoration: none;
     color: currentColor;
@@ -5,4 +9,10 @@ a {
 
 a:hover {
     color: blue;
+}
+
+.table th,
+.table td {
+    background-color: transparent;
+    border-color: #6c757d;
 }

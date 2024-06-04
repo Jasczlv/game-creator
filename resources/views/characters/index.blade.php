@@ -29,7 +29,7 @@
                             <td>
                                 @auth
                                     <div class="d-flex gap-2">
-                                        <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
+                                        <a href="{{ route('characters.edit', $character) }}">Edit</a>
                                         <form action="{{ route('characters.destroy', $character) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
