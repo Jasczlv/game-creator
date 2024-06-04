@@ -47,11 +47,17 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/characters') }}">{{ __('Characters') }}</a>
+                            </li>
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/characters') }}">{{ __('Characters') }}</a>
+                            </li>
+                        @endauth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/characters') }}">{{ __('Characters') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{url('/weapons') }}">{{ __('Weapons') }}</a>
+                            <a class="nav-link" href="{{url('/admin/weapons') }}">{{ __('Weapons') }}</a>
                         </li>
                     </ul>
 

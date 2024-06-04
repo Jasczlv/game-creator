@@ -29,7 +29,7 @@ Route::middleware(['auth', 'verified'])
     ->group(function () {
         /* Weapons/Items routes */
 
-        Route::get('/', [PageController::class, 'index']);
+        Route::get('/weapons', [PageController::class, 'index']);
 
 
         /* *************************************************************** */
