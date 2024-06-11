@@ -1,8 +1,17 @@
 @extends('layouts.app')
 @section('content')
     <section>
-        <div class="container">
-            <h1>Home Page</h1>
+        <div class="container py-3">
+            <div class="row">
+                <div class="col">
+                    <h1>Home Page</h1>
+                </div>
+                <div class="col-auto">
+                    <a href="{{route('admin.characters.create')}}">
+                        <button class="btn btn-danger">New Character</button>
+                    </a>
+                </div>
+            </div>
 
 
             <table class="table">

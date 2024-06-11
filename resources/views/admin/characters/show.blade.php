@@ -9,6 +9,7 @@
             <p>{{ $character->defence }}</p>
             <p>{{ $character->speed }}</p>
             <p>{{ $character->life }}</p>
+            <p>class: {{$character->type->name}}</p>
 
             @foreach ($character->weapons as $weapon)
                 <p>{{$weapon->name}}</p>

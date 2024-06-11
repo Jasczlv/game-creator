@@ -42,9 +42,29 @@
                     <input type="text" name="life" class="form-control" id="life" placeholder="HP"
                         value="{{ $character->life }}">
                 </div>
+                
+                <div class="mb-3">
+                    <select name="type_id" id="type_id" >
+                        @foreach ($types as $type)
+                        {{-- TODO fixare l'old() --}}
+                        <option  @selected(old('type_id',$type->id == $character->type_id)) value="{{$type->id}}">{{$type->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                        
                 <div class="d-flex justify-content-center py-4">
                     <button class="btn my-btn-edit">Update</button>
                 </div>
+
+                @if ($errors->any())
+                    <div class="alert alert-danger mt-3">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </form>
         </div>
 

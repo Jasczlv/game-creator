@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Character;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -24,10 +25,10 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::orderBy('name', 'asc')->get();
 
 
-        return view('admin.characters.create');
+        return view('admin.characters.create', compact('types'));
     }
 
     /**
@@ -36,7 +37,15 @@ class CharacterController extends Controller
     public function store(Request $request)
     {
         //
-
+        $request->validate([
+            'name' => 'required|max:200|string',
+            'description' => 'nullable|string',
+            'attack' => 'required|integer',
+            'defence' => 'required|integer',
+            'speed' => 'required|integer',
+            'life' => 'required|integer',
+            'type_id' => 'required|integer|exists:types,id'
+        ]);
 
         $form_data = $request->all();
 
@@ -59,9 +68,11 @@ class CharacterController extends Controller
      */
     public function edit(Character $character)
     {
-        //
+        $types = Type::orderBy('name', 'asc')->get();
 
-        return view('admin.characters.edit', compact('character'));
+
+
+        return view('admin.characters.edit', compact('character', 'types'));
     }
 
     /**
@@ -70,6 +81,15 @@ class CharacterController extends Controller
     public function update(Request $request, Character $character)
     {
 
+        $request->validate([
+            'name' => 'required|max:200|string',
+            'description' => 'nullable|string',
+            'attack' => 'required|integer',
+            'defence' => 'required|integer',
+            'speed' => 'required|integer',
+            'life' => 'required|integer',
+            'type_id' => 'required|integer|exists:types,id'
+        ]);
 
         $form_data = $request->all();
 

@@ -41,6 +41,24 @@
                         <label for="life" class="form-label">Punti HP</label>
                         <input type="text" name="life" class="form-control" id="life" placeholder="max 40">
                     </div>
+                    
+                    <div class="mb-3">
+                        <select name="type_id" id="type_id">
+                            @foreach ($types as $type)
+                                <option value="{{$type->id}}">{{$type->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger mt-3">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
 
 
