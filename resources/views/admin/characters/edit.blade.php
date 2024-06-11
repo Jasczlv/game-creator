@@ -46,8 +46,7 @@
                 <div class="mb-3">
                     <select name="type_id" id="type_id" >
                         @foreach ($types as $type)
-                        {{-- TODO fixare l'old() --}}
-                        <option  @selected(old('type_id',$type->id == $character->type_id)) value="{{$type->id}}">{{$type->name}}</option>
+                        <option  @selected($type->id == old('type_id', $character->type_id)) value="{{$type->id}}">{{$type->name}}</option>
                         @endforeach
                     </select>
                 </div>
