@@ -14,7 +14,7 @@ class WeaponSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('weapons')->truncate();
+        // DB::table('weapons')->truncate();
         //
         $data = $this->getCSVData(__DIR__ . '/items.csv');
         foreach ($data as $index => $row) {
