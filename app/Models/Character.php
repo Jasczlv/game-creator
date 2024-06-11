@@ -11,4 +11,9 @@ class Character extends Model
     protected $fillable = [
         'name', 'description', 'attack', 'defence', 'speed', 'life',
     ];
+
+    public function weapons()
+    {
+        return $this->belongsToMany(Weapon::class);
+    }
 }
