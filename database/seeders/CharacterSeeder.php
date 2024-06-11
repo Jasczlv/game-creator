@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Character;
+use App\Models\Weapon;
 use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,6 +16,8 @@ class CharacterSeeder extends Seeder
     public function run(Faker $faker): void
     {
         //
+        $weapons_id = Weapon::all()->pluck('id')->all();
+
 
         for ($i = 0; $i < 10; $i++) {
 
@@ -29,6 +32,9 @@ class CharacterSeeder extends Seeder
             $new_character->life = $faker->numberBetween(1, 40);
 
             $new_character->save();
+
+            $random_weapon_ids = $faker->randomElements($weapons_id, null);
+            $new_character->weapons()->attach($random_weapon_ids);
         }
     }
 }
