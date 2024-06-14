@@ -9,12 +9,18 @@ class Character extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name', 'description', 'attack', 'defence', 'speed', 'life', 'type_id'
+        'name',
+        'description',
+        'attack',
+        'defence',
+        'speed',
+        'life',
+        'type_id'
     ];
 
     public function weapons()
     {
-        return $this->belongsToMany(Weapon::class);
+        return $this->belongsToMany(Weapon::class)->withPivot('qty');
     }
 
     public function type()

@@ -1,29 +1,81 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <p>{{ $character->name }}</p>
-            <p>{{ $character->description }}</p>
-            <p>{{ $character->attack }}</p>
-            <p>{{ $character->defence }}</p>
-            <p>{{ $character->speed }}</p>
-            <p>{{ $character->life }}</p>
-            <p>class: {{$character->type->name}}</p>
+    <div id="character_profile">
 
-            @foreach ($character->weapons as $weapon)
-                <p>{{$weapon->name}}</p>
-            @endforeach
-        </div>
-        <div class="d-flex gap-2">
-            <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
-            <form action="{{ route('admin.characters.destroy', $character) }}" method="POST">
-                @method('DELETE')
-                @csrf
 
-                <button class="btn btn-link link-danger">Trash</button>
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-4" class="card py-2 rounded" id="character_portrait">
+                    <div class="card-body">
+                        <img class="mw-100"
+                            src="https://i0.wp.com/nerdarchy.com/wp-content/uploads/2021/06/the-undead-warlock-5E-DD-van-richtens-guide-to-ravenloft.png?fit=800%2C1470&ssl=1"
+                            alt="">
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex gap-2 justify-content-center">
+                            <button class="btn btn-secondary">
+                                <a href="{{ route('admin.characters.edit', $character) }}">Edit</a>
+                            </button>
+                            <form action="{{ route('admin.characters.destroy', $character) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
 
-            </form>
+                                <button class="btn btn-danger">Delete
+                                </button>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8 h-100">
+                    <div class="card text-white" id="character_card">
+                        <div class="card-header">
+                            <h2 class="text-center">
+                                <p>{{ $character->name }}</p>
+                            </h2>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                <li class="list-group-item bg-transparent text-white">
+                                    <p><span class="fw-semibold">Class: </span>{{ $character->type->name }}</p>
+
+                                </li>
+                                <li class="list-group-item bg-transparent text-white">
+                                    <p><span class="fw-semibold">Defence: </span>{{ $character->defence }}</p>
+
+                                </li>
+                                <li class="list-group-item bg-transparent text-white">
+
+                                    <p><span class="fw-semibold">Speed: </span>{{ $character->speed }}</p>
+                                </li>
+                                <li class="list-group-item bg-transparent text-white">
+                                    <p><span class="fw-semibold">Attack: </span>{{ $character->attack }}</p>
+
+                                </li>
+                                <li class="list-group-item bg-transparent text-white">
+                                    <p><span class="fw-semibold">Hit Points: </span>{{ $character->life }}</p>
+                                </li>
+                            </ul>
+                            <em class="mt-5">"{{ $character->description }}"</em>
+                        </div>
+
+                        <div>
+                            <h4 class="text-center">Weapons:</h4>
+                            <ul class="list-unstyle">
+                                @foreach ($character->weapons as $weapon)
+                                    <li>
+                                        <p>{{ $weapon->name }} x {{ $weapon->pivot->qty }}</p>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 @endsection

@@ -33,3 +33,20 @@ a:hover {
 * {
     cursor: url(/resources/img/icons8-stone-arrowhead-25.png), auto;
 }
+
+#character_profile {
+    background-image: url(https://cdn.openart.ai/stable_diffusion/63ca6816a54d849b565e5bc4b4d0d86ac68aad4a_2000x2000.webp);
+    background-size: cover;
+    background-position: center top;
+}
+
+/*  {
+    background-image: url(https://static.vecteezy.com/system/resources/previews/015/080/732/original/old-brown-parchment-transparent-png.png);
+    background-size: cover;
+    background-position: top;
+} */
+
+#character_card,
+#character_portrait {
+    background-color: rgba($color: #000000, $alpha: 0.7);
+}

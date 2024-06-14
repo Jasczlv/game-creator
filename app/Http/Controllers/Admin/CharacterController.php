@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Character;
 use App\Models\Type;
+use App\Models\Weapon;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -26,9 +27,10 @@ class CharacterController extends Controller
     public function create()
     {
         $types = Type::orderBy('name', 'asc')->get();
+        $weapons = Weapon::orderBy('name', 'asc')->get();
 
 
-        return view('admin.characters.create', compact('types'));
+        return view('admin.characters.create', compact('types', 'weapons'));
     }
 
     /**
@@ -44,12 +46,20 @@ class CharacterController extends Controller
             'defence' => 'required|integer',
             'speed' => 'required|integer',
             'life' => 'required|integer',
-            'type_id' => 'required|integer|exists:types,id'
+            'type_id' => 'required|integer|exists:types,id',
+            'weapon_ids' => 'nullable|exists:weapons,id'
         ]);
 
         $form_data = $request->all();
 
         $new_character = Character::create($form_data);
+
+        if ($request->has('weapon_ids')) {
+
+            $new_character->weapons()->attach($form_data['weapon_ids']);
+
+        }
+
         return to_route('admin.characters.show', $new_character);
     }
 
@@ -69,10 +79,11 @@ class CharacterController extends Controller
     public function edit(Character $character)
     {
         $types = Type::orderBy('name', 'asc')->get();
+        $weapons = Weapon::orderBy('name', 'asc')->get();
 
 
 
-        return view('admin.characters.edit', compact('character', 'types'));
+        return view('admin.characters.edit', compact('character', 'types', 'weapons'));
     }
 
     /**
@@ -88,13 +99,22 @@ class CharacterController extends Controller
             'defence' => 'required|integer',
             'speed' => 'required|integer',
             'life' => 'required|integer',
-            'type_id' => 'required|integer|exists:types,id'
+            'type_id' => 'required|integer|exists:types,id',
+            'weapon_ids' => 'nullable|exists:weapons,id|array'
         ]);
 
         $form_data = $request->all();
 
-        $character->fill($form_data);
-        $character->save();
+        if ($request->has('weapon_ids')) {
+
+            $character->weapons()->sync($form_data['weapon_ids']);
+
+        } else {
+            $character->weapons()->detach();
+        }
+
+
+        $character->update($form_data);
         // $character->update($form_data);
 
         return to_route('admin.characters.show', $character);
