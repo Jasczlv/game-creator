@@ -6,7 +6,7 @@
 
         <div class="container py-5">
             <div class="row">
-                <div class="col-4" class="card py-2 rounded" id="character_portrait">
+                <div class="col-4 card py-2 rounded" id="character_portrait">
                     <div class="card-body">
                         <img class="mw-100"
                             src="https://i0.wp.com/nerdarchy.com/wp-content/uploads/2021/06/the-undead-warlock-5E-DD-van-richtens-guide-to-ravenloft.png?fit=800%2C1470&ssl=1"
@@ -43,19 +43,23 @@
 
                                 </li>
                                 <li class="list-group-item bg-transparent text-white">
-                                    <p><span class="fw-semibold">Defence: </span>{{ $character->defence }}</p>
+                                    <p><span class="fw-semibold">Defence: </span>{{ $character->defence }} <i
+                                            class="fa-solid fa-shield"></i> </p>
 
                                 </li>
                                 <li class="list-group-item bg-transparent text-white">
 
-                                    <p><span class="fw-semibold">Speed: </span>{{ $character->speed }}</p>
+                                    <p><span class="fw-semibold">Speed: </span>{{ $character->speed }} <i
+                                            class="fa-solid fa-bolt"></i></p>
                                 </li>
                                 <li class="list-group-item bg-transparent text-white">
-                                    <p><span class="fw-semibold">Attack: </span>{{ $character->attack }}</p>
+                                    <p><span class="fw-semibold">Attack: </span>{{ $character->attack }} <i
+                                            class="fa-solid fa-hand-fist"></i></p>
 
                                 </li>
                                 <li class="list-group-item bg-transparent text-white">
-                                    <p><span class="fw-semibold">Hit Points: </span>{{ $character->life }}</p>
+                                    <p><span class="fw-semibold">Hit Points: </span>{{ $character->life }} <i
+                                            class="fa-solid fa-heart"></i></p>
                                 </li>
                             </ul>
                             <em class="mt-5">"{{ $character->description }}"</em>
