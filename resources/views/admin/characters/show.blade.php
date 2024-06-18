@@ -8,9 +8,15 @@
             <div class="row">
                 <div class="col-4 card py-2 rounded" id="character_portrait">
                     <div class="card-body">
-                        <img class="mw-100"
+                        @if($character->image)
+                            <figure>
+                            <img class="mw-100" src="{{ asset('storage/' . $character->image) }}" alt="Character image {{ $character->name }}.">
+                            </figure>
+                        @else
+                            <img class="mw-100"
                             src="https://i0.wp.com/nerdarchy.com/wp-content/uploads/2021/06/the-undead-warlock-5E-DD-van-richtens-guide-to-ravenloft.png?fit=800%2C1470&ssl=1"
                             alt="">
+                        @endif
                     </div>
                     <div class="card-footer">
                         <div class="d-flex gap-2 justify-content-center">

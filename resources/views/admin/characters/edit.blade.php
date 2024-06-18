@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            <form class="py-5" action="{{ route('admin.characters.update', $character) }}" method="POST">
+            <form class="py-5" action="{{ route('admin.characters.update', $character) }}" method="POST" enctype="multipart/form-data">
 
                 @csrf
                 @method('PUT')
@@ -22,6 +22,11 @@
                     <label for="name" class="form-label">Name</label>
                     <input type="text" name="name" class="form-control" id="name" placeholder="Nome"
                         value="{{ $character->name }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Character image</label>
+                    <input class="form-control" type="file" id="image" name="image">
                 </div>
 
                 <div class="mb-3">

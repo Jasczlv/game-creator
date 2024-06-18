@@ -18,7 +18,7 @@
                     </div>
                 @endif
 
-                <form action="{{ route('admin.characters.store') }}" method="POST">
+                <form action="{{ route('admin.characters.store') }}" method="POST" enctype="multipart/form-data">
 
                     {{-- Cross Site Request Forgering --}}
                     @csrf
@@ -27,6 +27,11 @@
                         <label for="name" class="form-label">Character Name</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="Nome">
                     </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Character image</label>
+                        <input class="form-control" type="file" id="image" name="image">
+                      </div>
 
                     <div class="mb-3">
                         <label for="description" class="form-label">Character description</label>

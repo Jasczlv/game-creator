@@ -7,6 +7,7 @@ use App\Models\Character;
 use App\Models\Type;
 use App\Models\Weapon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CharacterController extends Controller
 {
@@ -52,12 +53,19 @@ class CharacterController extends Controller
 
         $form_data = $request->all();
 
+        if ($request->hasFile('image')) {
+
+            $image_path = Storage::disk('public')->put('images', $request->image);
+
+            $form_data['image'] = $image_path;
+        };
+
+
         $new_character = Character::create($form_data);
 
         if ($request->has('weapon_ids')) {
 
             $new_character->weapons()->attach($form_data['weapon_ids']);
-
         }
 
         return to_route('admin.characters.show', $new_character);
@@ -108,11 +116,21 @@ class CharacterController extends Controller
         if ($request->has('weapon_ids')) {
 
             $character->weapons()->sync($form_data['weapon_ids']);
-
         } else {
             $character->weapons()->detach();
         }
 
+        if ($request->hasFile('image')) {
+
+            //salviamo il nuovo file inviato
+            $image_path = Storage::disk('public')->put('images', $request->image);
+            $form_data['image'] = $image_path;
+
+            if ($character->image) {
+                // eliminare il file $character->image
+                Storage::disk('public')->delete($character->image);
+            }
+        }
 
         $character->update($form_data);
         // $character->update($form_data);

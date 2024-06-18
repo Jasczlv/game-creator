@@ -15,7 +15,8 @@ class Character extends Model
         'defence',
         'speed',
         'life',
-        'type_id'
+        'type_id',
+        'image'
     ];
 
     public function weapons()
