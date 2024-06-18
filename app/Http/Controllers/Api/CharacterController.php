@@ -18,4 +18,13 @@ class CharacterController extends Controller
             'characters' => $characters
         ]);
     }
+
+    public function show(Character $character)
+    {
+        $character->load('type', 'weapons');
+
+        return response()->json([
+            'character' => $character
+        ]);
+    }
 }
