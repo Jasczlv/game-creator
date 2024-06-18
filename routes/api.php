@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CharacterController;
+use App\Http\Controllers\Api\WeaponsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/characters', [CharacterController::class, 'index']);
 
 Route::get('/characters/{character:slug}', [CharacterController::class, 'show']);
+
+Route::get('/weapons', [WeaponsController::class, 'index']);
